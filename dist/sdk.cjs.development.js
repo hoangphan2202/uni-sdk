@@ -1414,12 +1414,12 @@ var Router = /*#__PURE__*/function () {
     switch (trade.tradeType) {
       case exports.TradeType.EXACT_INPUT:
         if (etherIn) {
-          methodName = useFeeOnTransfer ? 'swapExactETHForTokensSupportingFeeOnTransferTokens' : 'swapExactETHForTokens'; // (uint amountOutMin, address[] calldata path, address to, uint deadline)
+          methodName = useFeeOnTransfer ? 'swapExactKAIForTokensSupportingFeeOnTransferTokens' : 'swapExactKAIForTokens'; // (uint amountOutMin, address[] calldata path, address to, uint deadline)
 
           args = [amountOut, path, to, deadline];
           value = amountIn;
         } else if (etherOut) {
-          methodName = useFeeOnTransfer ? 'swapExactTokensForETHSupportingFeeOnTransferTokens' : 'swapExactTokensForETH'; // (uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)
+          methodName = useFeeOnTransfer ? 'swapExactTokensForKAISupportingFeeOnTransferTokens' : 'swapExactTokensForKAI'; // (uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)
 
           args = [amountIn, amountOut, path, to, deadline];
           value = ZERO_HEX;
@@ -1436,12 +1436,12 @@ var Router = /*#__PURE__*/function () {
         !!useFeeOnTransfer ?  invariant(false, 'EXACT_OUT_FOT')  : void 0;
 
         if (etherIn) {
-          methodName = 'swapETHForExactTokens'; // (uint amountOut, address[] calldata path, address to, uint deadline)
+          methodName = 'swapKAIForExactTokens'; // (uint amountOut, address[] calldata path, address to, uint deadline)
 
           args = [amountOut, path, to, deadline];
           value = amountIn;
         } else if (etherOut) {
-          methodName = 'swapTokensForExactETH'; // (uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)
+          methodName = 'swapTokensForExactKAI'; // (uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)
 
           args = [amountOut, amountIn, path, to, deadline];
           value = ZERO_HEX;
